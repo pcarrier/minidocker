@@ -41,7 +41,7 @@ for name in ${names}; do
 	eval skipped=\$_skip_${name}
 	if [ -z "${skipped}" ]; then
 		build ${name}
-		if [ -z "${nopush}" ]; then
+		if [ -n "${push}" ]; then
 			push ${name}
 		fi
 	fi

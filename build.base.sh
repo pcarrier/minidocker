@@ -33,4 +33,7 @@ docker rm flattened.container || true
 docker import --change 'ENTRYPOINT /bin/sh' ${tmp}/flattened.tar ${repo}:${ts}
 
 docker tag  ${repo}:${ts} ${repo}:latest
-[ -z "$nopush" ] && docker push ${repo}
+
+if [ -n "$push" ]; then
+	docker push ${repo}
+fi

@@ -3,4 +3,4 @@ services:
 - docker
 script:
 - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-- ./build.sh
+- push=1 ./build.sh
