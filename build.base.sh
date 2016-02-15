@@ -30,7 +30,7 @@ docker run --name flattened.container toflatten.img /bin/true
 docker export flattened.container > ${tmp}/flattened.tar
 docker rm flattened.container || true
 
-docker import --change 'ENTRYPOINT /bin/sh' ${tmp}/flattened.tar ${repo}:${ts}
+docker import ${tmp}/flattened.tar ${repo}:${ts}
 
 docker tag  ${repo}:${ts} ${repo}:latest
 
