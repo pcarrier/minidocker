@@ -1,0 +1,4 @@
+Example usage:
+
+$ docker run -e USER=$USER -e UID=$UID -v $HOME:/$USER --net=host grab/dropbear
+$ ssh -p 2222 127.0.0.1
