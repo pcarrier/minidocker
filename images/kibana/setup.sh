@@ -1,4 +1,5 @@
-#!/bin/sh -ex
+#!/bin/sh
+set -ex
 
 version=4.4.1
 builddeps='openssl'
