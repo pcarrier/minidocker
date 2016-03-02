@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 
-version=v4.4.0
+version=4.4.1
 builddeps='openssl'
 
 # Initial setup as root
@@ -17,10 +17,10 @@ fi
 
 cd /kibana
 
-wget https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz
-tar xzvf kibana-4.4.0-linux-x64.tar.gz
-mv kibana-4.4.0-linux-x64/* .
-rm -r kibana-4.4.0-linux-x64
+wget https://download.elastic.co/kibana/kibana/kibana-${version}-linux-x64.tar.gz
+tar xzvf kibana-${version}-linux-x64.tar.gz
+mv kibana-${version}-linux-x64/* .
+rm -r kibana-${version}-linux-x64
 
 sed -i 's_^NODE=.*_NODE=/usr/bin/node_' bin/kibana
 rm -r node
