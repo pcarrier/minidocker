@@ -19,7 +19,7 @@ bootstrap/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub \
 
 RUN ["/apk.static", "-X", "${mirror}/${version}/main", "--initdb", "--no-cache", "--keys-dir", "/", "add", "alpine-baselayout", "alpine-keys", "apk-tools", "musl-utils"]
 
-RUN rm /apk.static /*.pub && printf '%s\n%s\n@edge %s\n@testing %s\n' ${mirror}/${version}/main ${mirror}/${version}/community ${mirror}/edge/main ${mirror}/edge/testing > /etc/apk/repositories
+RUN rm /apk.static /*.pub && printf '%s\n%s\n@edge %s\n@edge %s\n@testing %s\n' ${mirror}/${version}/main ${mirror}/${version}/community ${mirror}/edge/main ${mirror}/edge/community ${mirror}/edge/testing > /etc/apk/repositories
 EOF
 
 docker build -t toflatten.img -f ${tmp}/Dockerfile .
