@@ -29,9 +29,8 @@ CC=`which gcc` CXX=`which g++` \
 
 /usr/bin/ninja -C v8/out/Release v8
 
-mkdir -p /v8/lib
 ar -M <<EOF
-create /v8/lib/libv8.a
+create /usr/lib/libv8.a
 addlib v8/out/Release/obj/tools/gyp/libv8_snapshot.a
 addlib v8/out/Release/obj/tools/gyp/libv8_libbase.a
 addlib v8/out/Release/obj/tools/gyp/libv8_libplatform.a
@@ -39,8 +38,10 @@ addlib v8/out/Release/obj/tools/gyp/libv8_base.a
 save
 end
 EOF
-mv v8/out/Release/lib/libv8.so /v8/lib/
-mv v8/include /v8/include
+mv v8/out/Release/lib/libv8.so /usr/lib
+
+rm v8/include/OWNERS
+cp -r v8/include/* /usr/include
 
 apk del $builddeps
 cd /
