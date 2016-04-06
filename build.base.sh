@@ -17,7 +17,7 @@ bootstrap/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub \
 bootstrap/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub \
 /
 
-RUN ["/apk.static", "-X", "${mirror}/${version}/main", "--initdb", "--no-cache", "--keys-dir", "/", "add", "alpine-baselayout", "alpine-keys", "apk-tools", "musl-utils"]
+RUN ["/apk.static", "-X", "${mirror}/${version}/main", "--initdb", "--no-cache", "--update-cache", "--keys-dir", "/", "add", "alpine-baselayout", "alpine-keys", "apk-tools", "musl-utils"]
 
 RUN rm /apk.static /*.pub && printf '%s\n%s\n@edge %s\n@edge %s\n@testing %s\n' ${mirror}/${version}/main ${mirror}/${version}/community ${mirror}/edge/main ${mirror}/edge/community ${mirror}/edge/testing > /etc/apk/repositories
 EOF
