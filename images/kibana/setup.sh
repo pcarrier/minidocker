@@ -11,7 +11,7 @@ if [ kibana != "$USER" ]; then
 	adduser -S -h /kibana kibana
 	su -s /bin/sh kibana /setup.sh
 
-	apk del $builddeps
+	apk ---no-cache del $builddeps
 	rm /setup.sh
 	exit 0
 fi

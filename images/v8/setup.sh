@@ -1,8 +1,9 @@
 #!/bin/sh
-set -ex
+set -euxo pipefail
 
-version=4.8.271.20
-builddeps='bash binutils-gold g++ git linux-headers ninja python'
+# Track v8/v8 5.0-lkgr
+version=5.0.71.31
+builddeps='bash binutils-gold clang@edge clang-dev@edge g++ git linux-headers musl-dev ninja python'
 
 apk --no-cache add $builddeps
 
@@ -18,9 +19,7 @@ gclient config --spec 'solutions = [{
 }]'
 gclient sync --nohooks --shallow --revision v8@${version}
 
-sed -i -e /-Wshorten-64-to-32/d -e /-fcolor-diagnostics/d v8/build/standalone.gypi
-
-CC=`which gcc` CXX=`which g++` \
+CC=`which clang` CXX=`which clang++` \
   ./v8/build/gyp_v8 \
   -Dv8_use_external_startup_data=0 \
   -Dv8_enable_i18n_support=0 \
@@ -43,6 +42,6 @@ mv v8/out/Release/lib/libv8.so /usr/lib
 rm v8/include/OWNERS
 cp -r v8/include/* /usr/include
 
-apk del $builddeps
+apk --no-cache del `echo $builddeps|sed s/@edge//g`
 cd /
 rm -r build etc/ssl setup.sh

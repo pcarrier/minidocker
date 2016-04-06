@@ -16,6 +16,6 @@ go get .
 
 mv /go/bin/gnatsd /usr/bin
 
-apk del $builddeps
+apk --no-cache del $builddeps
 cd /
 rm -r /go /etc/ssl
