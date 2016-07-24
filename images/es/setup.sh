@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-version=2.2.0
+version=2.3.4
 
 # Initial setup as root
 if [ es != "$USER" ]; then
@@ -20,7 +20,7 @@ wget https://download.elasticsearch.org/elasticsearch/\
 release/org/elasticsearch/distribution/tar/elasticsearch/\
 ${version}/elasticsearch-${version}.tar.gz
 
-tar xzvf elasticsearch-${version}.tar.gz
+tar xzf elasticsearch-${version}.tar.gz
 rm elasticsearch-${version}.tar.gz
 
 mv elasticsearch-${version}/* .
