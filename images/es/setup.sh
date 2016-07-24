@@ -5,7 +5,7 @@ version=2.2.0
 
 # Initial setup as root
 if [ es != "$USER" ]; then
-	apk --no-cache add openjdk8-jre-base
+	apk --no-cache add openjdk8-jre-base openssl
 
 	adduser -S -h /es es
 	su -s /bin/sh es /setup.sh
