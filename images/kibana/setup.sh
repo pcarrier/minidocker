@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-version=4.4.1
+version=4.5.3
 builddeps='openssl'
 
 # Initial setup as root
@@ -19,7 +19,7 @@ fi
 cd /kibana
 
 wget https://download.elastic.co/kibana/kibana/kibana-${version}-linux-x64.tar.gz
-tar xzvf kibana-${version}-linux-x64.tar.gz
+tar xzf kibana-${version}-linux-x64.tar.gz
 mv kibana-${version}-linux-x64/* .
 rm -r kibana-${version}-linux-x64
 
