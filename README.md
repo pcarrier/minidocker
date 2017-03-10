@@ -6,7 +6,7 @@ A few minimal images based on Alpine Linux, exposed via https://hub.docker.com/u
 
 `./build.sh` should work from any Unix with a configured docker client (tested on OSX and Alpine).
 
-To get a new repo, open a PR dropping a new directory in `images/`. `FROM` will be injected at the top of the Dockerfile, to be an up-to-date Alpine 3.3.
+To get a new repo, open a PR dropping a new directory in `images/`. `FROM` will be injected at the top of the Dockerfile, to be an up-to-date Alpine 3.5.
 
 Travis automatically builds and pushes from master.
 

@@ -1,8 +1,8 @@
 #!/bin/sh
 set -ex
 
-version=0.7.2
-builddeps='go git'
+version=0.9.6
+builddeps='go git musl-dev'
 
 apk --no-cache add $builddeps
 
