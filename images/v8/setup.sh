@@ -1,8 +1,8 @@
 #!/bin/sh
 set -euxo pipefail
 
-# Track v8/v8 5.0-lkgr
-version=5.0.71.31
+# Track v8/v8 5.8-lkgr
+version=5.8.283.9
 builddeps='bash binutils-gold clang@edge clang-dev@edge g++ git linux-headers musl-dev ninja python'
 
 apk --no-cache add $builddeps

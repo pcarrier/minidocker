@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-version=0.7.2
+version=0.9.6
 builddeps='go git'
 
 apk --no-cache add $builddeps

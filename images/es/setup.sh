@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-version=2.3.4
+version=5.2.2
 
 # Initial setup as root
 if [ es != "$USER" ]; then
@@ -15,10 +15,7 @@ if [ es != "$USER" ]; then
 fi
 
 cd /es
-
-wget https://download.elasticsearch.org/elasticsearch/\
-release/org/elasticsearch/distribution/tar/elasticsearch/\
-${version}/elasticsearch-${version}.tar.gz
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}.tar.gz
 
 tar xzf elasticsearch-${version}.tar.gz
 rm elasticsearch-${version}.tar.gz
